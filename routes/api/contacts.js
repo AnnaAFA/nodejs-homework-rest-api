@@ -1,12 +1,9 @@
 const express = require("express");
-const contactsController = require("../../controllers/contacts-controller");
+const contactsController = require("../../controllers/contacts");
 const router = express.Router();
-const {
-  contactAddSchema,
-  updateFavoriteSchema,
-} = require("../../models/Contact");
-const validateBody = require("../../decorators/validateBody");
-const isValidId = require("../../middlewares/isValidId");
+const { contactAddSchema, updateFavoriteSchema } = require("../../models");
+const { validateBody } = require("../../decorators");
+const isValidId = require("../../middlewares");
 
 const addContactValidate = validateBody(contactAddSchema);
 const updateFavoriteValidate = validateBody(updateFavoriteSchema);
