@@ -4,6 +4,7 @@ const {
   updateFavoriteSchema,
 } = require("./Contact");
 const { handleSaveError, runValidateAtUpdate } = require("./hooks");
+const { User, userRegisterSchema, userLoginSchema } = require("./User");
 
 module.exports = {
   Contact,
@@ -11,4 +12,7 @@ module.exports = {
   updateFavoriteSchema,
   handleSaveError,
   runValidateAtUpdate,
+  User,
+  userRegisterSchema,
+  userLoginSchema,
 };
