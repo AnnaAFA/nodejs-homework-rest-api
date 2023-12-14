@@ -1,5 +1,10 @@
 const isValidId = require("./isValidId");
 const authenticate = require("./authenticate");
 const { ctrlWrapper } = require("../decorators");
+const upload = require("./upload");
 
-module.exports = { isValidId, authenticate: ctrlWrapper(authenticate) };
+module.exports = {
+  upload,
+  isValidId,
+  authenticate: ctrlWrapper(authenticate),
+};
