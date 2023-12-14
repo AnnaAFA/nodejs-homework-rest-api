@@ -3,7 +3,7 @@ const userRouter = express.Router();
 const userController = require("../../controllers/users");
 const { validateBody } = require("../../decorators");
 const { userRegisterSchema, userLoginSchema } = require("../../models");
-const { authenticate, upload } = require("../../middlewares");
+const { authenticate, upload, resizeAvatar } = require("../../middlewares");
 
 userRouter.post(
   "/register",
@@ -20,6 +20,7 @@ userRouter.patch(
   "/avatars",
   authenticate,
   upload.single("avatar"),
+  resizeAvatar,
   userController.updateAvatar
 );
 
