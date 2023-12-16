@@ -4,7 +4,12 @@ const {
   updateFavoriteSchema,
 } = require("./Contact");
 const { handleSaveError, runValidateAtUpdate } = require("./hooks");
-const { User, userRegisterSchema, userLoginSchema } = require("./User");
+const {
+  User,
+  userRegisterSchema,
+  userLoginSchema,
+  userEmailSchema,
+} = require("./User");
 
 module.exports = {
   Contact,
@@ -15,4 +20,5 @@ module.exports = {
   User,
   userRegisterSchema,
   userLoginSchema,
+  userEmailSchema,
 };
