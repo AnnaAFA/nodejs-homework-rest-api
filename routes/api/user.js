@@ -2,7 +2,11 @@ const express = require("express");
 const userRouter = express.Router();
 const userController = require("../../controllers/users");
 const { validateBody } = require("../../decorators");
-const { userRegisterSchema, userLoginSchema } = require("../../models");
+const {
+  userRegisterSchema,
+  userLoginSchema,
+  userEmailSchema,
+} = require("../../models");
 const { authenticate, upload, resizeAvatar } = require("../../middlewares");
 
 userRouter.post(
@@ -22,6 +26,14 @@ userRouter.patch(
   upload.single("avatar"),
   resizeAvatar,
   userController.updateAvatar
+);
+
+userRouter.get("/verify/:verificationToken", userController.verify);
+
+userRouter.post(
+  "/verify",
+  validateBody(userEmailSchema),
+  userController.resendVerify
 );
 
 module.exports = userRouter;
